@@ -11,16 +11,17 @@ const SidebarSection: React.FC<SidebarSectionProps> = (props: SidebarSectionProp
     return (
         <div className="w-full">
             <AnimatePresence>
-                {ctx?.expanded && (
                 <motion.h5
                     variants={labelsAnimateVariants}
                     initial="collapsed"
                     animate="expanded"
                     exit="collapsed"
-                    className="uppercase text-[10px] font-semibold tracking-widest text-gray-500 px-3 mt-2"
+                    className={cn("uppercase text-[10px] font-semibold tracking-widest text-gray-500 px-3 mt-2 invisible", {
+                        "visible": ctx?.expanded
+                    })}
                 >
                     {props.title}
-                </motion.h5>)}
+                </motion.h5>
             </AnimatePresence>
             <div className="w-full">
                 {/**
@@ -28,6 +29,10 @@ const SidebarSection: React.FC<SidebarSectionProps> = (props: SidebarSectionProp
                  */}
                 {props.children}
             </div>
+            {(!!props.separator) && (
+            <div className="px-3">
+                <hr />
+            </div>)}
         </div>
     )
 }

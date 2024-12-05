@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { cn } from "../../../utils";
 import { motion } from "framer-motion";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -7,10 +7,7 @@ import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import { mainAnimateVariants } from "./animate.configs";
 import SidebarHeader from "./SidebarHeader";
 import { NavigationSidebarProps } from "./types";
-import SidebarSection from "./SidebarSection";
 import SidebarContextProvider, { SidebarContext } from "./SidebarContextProvider";
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import SidebarItem from "./SidebarItem";
 
 const NavigationSidebar: React.FC<NavigationSidebarProps> = (props: NavigationSidebarProps) => {
     return (
@@ -29,6 +26,10 @@ const NavigationSidebarInclude: React.FC<NavigationSidebarProps> = (props: Navig
         }
     }
 
+    useEffect(() => {
+        ctx?.setActiveItemId(props.defaultActiveItemId)
+    }, [])
+
     return (
         <motion.div 
             variants={mainAnimateVariants} 
@@ -45,17 +46,8 @@ const NavigationSidebarInclude: React.FC<NavigationSidebarProps> = (props: Navig
                 <SidebarHeader
                     title={props.headerTitle || "Kamvusoft"}
                     Logo={props.HeaderLogo || <InsertPhotoIcon fontSize="inherit"/>}/>}
-            <div className="grow overflow-y-auto">
-                <SidebarItem id="nav-home"
-                    Icon={<HomeOutlinedIcon/>}
-                    label="Home"
-                    onClick={id => (console.log(id))}/>
-                <SidebarSection title="Favorites">
-                    <SidebarItem id="nav-community-1"
-                        Icon={<HomeOutlinedIcon/>}
-                        label="Lykem Promo 2013"
-                        onClick={id => (console.log(id))}/>
-                </SidebarSection>
+            <div className="grow overflow-visible pt-1">
+                {props.children}
             </div>
             {(!!props.renderFooter) && props.renderFooter(ctx?.expanded || false)}
         </motion.div>

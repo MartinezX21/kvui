@@ -33,6 +33,7 @@ export type NavigationSidebarProps = {
      * Id of the section to be set as active by default
      */
     defaultActiveItemId?: string;
+    children?: React.ReactNode;
 }
 
 export type SidebarSectionProps = {
@@ -40,6 +41,7 @@ export type SidebarSectionProps = {
      * Section title
      */
     title: string;
+    separator?: boolean;
     children?: React.ReactNode;
 }
 

@@ -10,15 +10,25 @@ const SidebarItem: React.FC<SidebarItemProps> = (props: SidebarItemProps) => {
 
     const isActive = useMemo(() => ctx?.activeItemId === props.id, [ctx?.activeItemId]);
 
+    const handleItemClicked = () => {
+        ctx?.setActiveItemId(props.id);
+        props.onClick(props.id);
+    }
+
     return (
-        <div className="px-3 w-full">
+        <div className="px-3 w-full py-[2px]">
             <button type="button" 
-                className="w-full h-10 flex items-center rounded-sm"
-                onClick={_ => props.onClick(props.id)}
+                className={cn("w-full h-10 flex items-center rounded-md hover:bg-slate-100 tooltip ps-1 pe-2", {
+                    "bg-slate-100": isActive,
+                    "after:content-none": ctx?.expanded
+                })}
+                onClick={_ => handleItemClicked()}
             >
-                <div className={cn("w-full flex items-center gap-2 flex-nowrap border-l-2 border-l-transparent ps-1 rounded-sm", {
-                    "border-l-primary": isActive
-                })}>
+                {(!ctx?.expanded) && <span className="tooltip-text">{props.label}</span>}
+                <div className={cn("h-5 rounded-full border-2 border-transparent", {
+                    "border-primary": isActive
+                })}></div>
+                <div className="w-full flex items-center justify-center gap-1 flex-nowrap px-1">
                     <p className="shrink-0 leading-none">{props.Icon}</p>
                     <AnimatePresence>
                         {ctx?.expanded && (

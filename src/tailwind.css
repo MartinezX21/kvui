@@ -1,3 +1,40 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer components {
+    .tooltip {
+        @apply relative
+    }
+
+    .tooltip .tooltip-text {
+        @apply 
+            absolute 
+            top-1/2 
+            -translate-y-1/2 
+            left-full
+            ml-4 
+            w-max
+            px-2 py-1
+            rounded-lg 
+            bg-black 
+            text-white 
+            text-center
+            opacity-0 transition-opacity duration-300
+            z-10
+            hidden
+    }
+
+    .tooltip:after {
+        @apply 
+            content-[""] absolute left-full -ml-1
+            top-1/2 -translate-y-1/2
+            border-8 border-transparent border-e-black
+            opacity-0 duration-300
+            hidden
+    }
+
+    .tooltip:hover .tooltip-text, .tooltip:hover:after {
+        @apply block opacity-100
+    }
+}
