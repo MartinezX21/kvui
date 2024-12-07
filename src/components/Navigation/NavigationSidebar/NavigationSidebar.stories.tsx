@@ -32,6 +32,7 @@ const meta = {
           <SidebarItem id="chat"
             Icon={<ChatIcon/>}
             label="Chat"
+            badge='3'
             onClick={id => (console.log(id))}/>
         </SidebarSection>
         <SidebarSection title="Communities">

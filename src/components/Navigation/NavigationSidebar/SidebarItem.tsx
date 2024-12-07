@@ -2,7 +2,7 @@ import React, { useContext, useMemo } from "react";
 import { SidebarItemProps } from "./types";
 import { SidebarContext } from "./SidebarContextProvider";
 import { motion, AnimatePresence } from "framer-motion";
-import { labelsAnimateVariants } from "./animate.configs";
+import { badgesAnimateVariants, labelsAnimateVariants } from "./animate.configs";
 import { cn } from "../../../utils";
 
 const SidebarItem: React.FC<SidebarItemProps> = (props: SidebarItemProps) => {
@@ -29,7 +29,18 @@ const SidebarItem: React.FC<SidebarItemProps> = (props: SidebarItemProps) => {
                     "border-primary": isActive
                 })}></div>
                 <div className="w-full flex items-center justify-center gap-1 flex-nowrap px-1">
-                    <p className="shrink-0 leading-none">{props.Icon}</p>
+                    <p className="shrink-0 leading-none badge">
+                        <AnimatePresence>
+                            {(!!props.badge && !ctx?.expanded) && 
+                            <motion.span 
+                                variants={badgesAnimateVariants}
+                                initial="collapsed"
+                                animate="expanded"
+                                exit="collapsed"
+                                className="badge-text badge-danger">{props.badge}</motion.span>}
+                        </AnimatePresence>
+                        {props.Icon}
+                    </p>
                     <AnimatePresence>
                         {ctx?.expanded && (
                         <motion.h5
@@ -41,6 +52,18 @@ const SidebarItem: React.FC<SidebarItemProps> = (props: SidebarItemProps) => {
                         >
                             {props.label}
                         </motion.h5>)}
+                    </AnimatePresence>
+                    <AnimatePresence>
+                        {(!!props.badge && ctx?.expanded) &&
+                        <motion.div 
+                            variants={badgesAnimateVariants}
+                            initial="collapsed"
+                            animate="expanded"
+                            exit="collapsed"
+                            className="shrink-0 flex items-center"
+                        >
+                            <span className="text-xxs text-white leading-none inline-block bg-red-600 py-1 px-1.5 rounded-full">{props.badge}</span>
+                        </motion.div>}
                     </AnimatePresence>
                 </div>
             </button>

@@ -49,5 +49,6 @@ export type SidebarItemProps = {
     id: string;
     label: string;
     Icon: React.ReactElement;
+    badge?: string;
     onClick: (id: SidebarItemProps["id"]) => void;
 }

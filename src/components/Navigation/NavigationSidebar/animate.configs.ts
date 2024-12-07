@@ -36,3 +36,21 @@ export const labelsAnimateVariants: Variants = {
         }
     }
 }
+
+export const badgesAnimateVariants: Variants = {
+    expanded: {
+        opacity: 1,
+        transition: {
+            ease: 'linear',
+            delay: 0.15,
+            duration: 0.3
+        }
+    },
+    collapsed: {
+        opacity: 0,
+        transition: {
+            ease: 'linear',
+            duration: 0.2
+        }
+    }
+}
