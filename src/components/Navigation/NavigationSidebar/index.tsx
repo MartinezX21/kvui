@@ -42,14 +42,14 @@ const NavigationSidebarInclude: React.FC<NavigationSidebarProps> = (props: Navig
             <button type="button" onClick={_e => toogleExpanded()} className={cn("absolute top-5 -right-3 z-10 h-6 w-6 bg-white rounded-full shadow hidden group-hover:block leading-none")}>
                 {ctx?.expanded? <ChevronLeftIcon fontSize="small"/> : <ChevronRightIcon fontSize="small"/>}
             </button>
-            {(!!props.renderHeader)? props.renderHeader(ctx?.expanded || false) :
+            {(!!props.renderHeader)? props.renderHeader() :
                 <SidebarHeader
                     title={props.headerTitle || "Kamvusoft"}
                     Logo={props.HeaderLogo || <InsertPhotoIcon fontSize="inherit"/>}/>}
             <div className="grow overflow-visible pt-1">
                 {props.children}
             </div>
-            {(!!props.renderFooter) && props.renderFooter(ctx?.expanded || false)}
+            {(!!props.renderFooter) && props.renderFooter()}
         </motion.div>
     )
 }

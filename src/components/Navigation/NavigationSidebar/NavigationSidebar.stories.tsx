@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import NavigationSidebar from '.';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SidebarFooter from './SidebarFooter';
@@ -59,10 +60,12 @@ export const Default: Story = {
 
 export const WithFooter: Story = {
   args: {
-    renderFooter: (_expanded: boolean) => (
+    renderFooter: () => (
       <SidebarFooter
+        id='nav-footer'
         label="Account"
-        Icon={<AccountCircleIcon/>}/>
+        Icon={<AccountCircleIcon/>}
+        onClick={_id => fn()}/>
     )
   },
 };

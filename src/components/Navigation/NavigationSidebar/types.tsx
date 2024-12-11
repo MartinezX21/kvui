@@ -1,8 +1,10 @@
 import React from 'react';
 
 export type SidebarFooterProps = {
+    id: string;
     label: string;
     Icon: React.ReactElement;
+    onClick: (id: SidebarFooterProps["id"]) => void;
 }
 
 export type SidebarHeaderProps = {
@@ -23,12 +25,12 @@ export type NavigationSidebarProps = {
      * Overrides the sidebar header
      * @returns the alement to be rendered as header
      */
-    renderHeader?: (expanded: boolean) => React.ReactElement;
+    renderHeader?: () => React.ReactElement;
     /**
      * Overrides the sidebar footer
      * @returns the alement to be rendered as footer
      */
-    renderFooter?: (expanded: boolean) => React.ReactElement;
+    renderFooter?: () => React.ReactElement;
     /**
      * Id of the section to be set as active by default
      */
