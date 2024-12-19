@@ -97,9 +97,9 @@ const Toast: React.FC<ToastProps> = (props: ToastProps) => {
                     <h5 className="font-semibold grow max-w-64 text-base line-clamp-1">
                         {props.title}
                     </h5>
-                    <div className="ms-4 h-8 w-9">
-                        <button type="button" onClick={_e => handleClose()} className="rounded px-2 py-1 hover:border hover:bg-slate-100">
-                            <CloseIcon fontSize="small"/>
+                    <div className="ms-4 h-8 w-9 flex items-center justify-center">
+                        <button type="button" onClick={_e => handleClose()} className="rounded px-2 py-1 hover:bg-slate-100 leading-none text-gray-600">
+                            <CloseIcon style={{fontSize: '1rem'}}/>
                         </button>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ const Toast: React.FC<ToastProps> = (props: ToastProps) => {
                     'hidden': !props.actions
                 })}>
                     {props.actions?.map(action => props.actionType === 'button'?
-                    <button type="button" onClick={action.handler} className="py-1 px-2 border rounded bg-slate-50 hover:bg-slate-100">
+                    <button type="button" onClick={action.handler} className="py-1 px-2 rounded bg-slate-50 hover:bg-slate-100">
                         {action.command}
                     </button>
                     :

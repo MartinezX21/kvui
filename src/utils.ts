@@ -16,3 +16,11 @@ export const colors = {
     "warning": "#ed6c02",
     "error": "#d32f2f"
 }
+
+export function toggleClass(classList: DOMTokenList, classname: string) {
+    if(classList.contains(classname)) {
+        classList.remove(classname);
+    } else {
+        classList.add(classname);
+    }
+}
