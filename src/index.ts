@@ -4,3 +4,4 @@ import './tailwind.css';
 export * from './components/Dialog';
 export * from './components/Navigation';
 export * from './components/Progess';
+export * from './components/StickyContainer';
