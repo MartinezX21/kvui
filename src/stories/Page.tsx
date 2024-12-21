@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Header } from './Header';
 import './page.css';
+import Menu from '../components/Menu';
 
 type User = {
   name: string;
@@ -33,6 +34,17 @@ export const Page: React.FC = () => {
           needing to navigate to them in your app. Here are some handy patterns for managing page
           data in Storybook:
         </p>
+        <div className="py-2">
+          <Menu offset={8} placement='right-end' MenuTriggerContent={(
+            <div className='bg-slate-100 p-2 px-3 rounded'>
+              <span>Click Me!</span>
+            </div>
+          )}>
+            <div className="p-2 my-1">Item 1</div>
+            <div className="p-2 my-1">Item 2</div>
+            <div className="p-2 my-1">Item 3</div>
+          </Menu>
+        </div>
         <ul>
           <li>
             Use a higher-level connected component. Storybook helps you compose such data from the

@@ -24,3 +24,16 @@ export function toggleClass(classList: DOMTokenList, classname: string) {
         classList.add(classname);
     }
 }
+
+export function getParentOf(elt: HTMLElement | null, selectors: string, maxDepth: number = 10) {
+    if (!!elt) {
+        if(elt.matches(selectors)) {
+            return elt;
+        } 
+        else if(maxDepth > 0) {
+            const parentElt = elt.parentElement;
+            return getParentOf(parentElt, selectors, --maxDepth);
+        }
+    }
+    return null;
+}
