@@ -35,7 +35,7 @@ export const Page: React.FC = () => {
           data in Storybook:
         </p>
         <div className="py-2">
-          <Menu offset={8} placement='right-end' MenuTriggerContent={(
+          <Menu offset={6} placement='right-end' MenuTriggerContent={(
             <div className='bg-slate-100 p-2 px-3 rounded'>
               <span>Click Me!</span>
             </div>
