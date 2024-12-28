@@ -16,12 +16,12 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
         defaultOptions: {
             placement: props.placement,
             modifiers: [
-                {
+                ...(props.offset === undefined? [] : [{
                     name: 'offset',
                     options: {
-                        offset: [0, props.offset]
+                        offset: [props.offset.skidding, props.offset.distance]
                     }
-                }
+                }])    
             ]
         }
     });

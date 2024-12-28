@@ -10,6 +10,9 @@ export type MenuProps = {
      */
     maxChildDepth?: number;
     contentClassName?: string;
-    offset?: number;
+    offset?: {
+        skidding: number;
+        distance: number;
+    };
     placement?: Placement
 }
