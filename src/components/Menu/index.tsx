@@ -45,10 +45,17 @@ const Menu: React.FC<MenuProps> = (props: MenuProps) => {
             const triggerBtn = getParentOf(elt, ".kv-menu-trigger", props.maxChildDepth);
             if(!triggerBtn) {
                 // user clicked outside the menu trigger
-                const contentElt = getParentOf(elt, ".kv-menu-content", props.maxChildDepth);
-                if(!contentElt) {
-                    // user clicked outside the menu content
-                    setVisible(false);
+                const itemElt = getParentOf(elt, ".kv-menu-item", props.maxChildDepth);
+                if(!!itemElt) {
+                    // user clicked on a menu item
+                    setVisible(false)
+                }
+                else {
+                    const contentElt = getParentOf(elt, ".kv-menu-content", props.maxChildDepth);
+                    if(!contentElt) {
+                        // user clicked outside the menu content
+                        setVisible(false);
+                    }
                 }
             }
         }

@@ -3,6 +3,7 @@ import React from 'react';
 import { Header } from './Header';
 import './page.css';
 import Menu from '../components/Menu';
+import MenuItem from '../components/Menu/MenuItem';
 
 type User = {
   name: string;
@@ -40,9 +41,13 @@ export const Page: React.FC = () => {
               <span>Click Me!</span>
             </div>
           )}>
-            <div className="p-2 my-1">Item 1</div>
-            <div className="p-2 my-1">Item 2</div>
-            <div className="p-2 my-1">Item 3</div>
+            <MenuItem label='Item 1' onClick={() => console.log("Item 1")}/>
+            <MenuItem label='Item 2' onClick={() => console.log("Item 2")}/>
+            <hr className='my-2'/>
+            <div className='px-4'>
+              <span className='text-gray-500'>My Section</span>
+            </div>
+            <MenuItem label='Item 3' onClick={() => console.log("Item 3")}/>
           </Menu>
         </div>
         <ul>

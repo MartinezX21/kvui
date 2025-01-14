@@ -16,3 +16,9 @@ export type MenuProps = {
     };
     placement?: Placement
 }
+
+export type MenuItemProps = {
+    label: string;
+    Icon?: React.ReactElement;
+    onClick: () => void;
+}
