@@ -7,7 +7,7 @@ const SingleImage: React.FC<SingleImageProps> = (props: SingleImageProps) => {
     const { loading, size, objectUrl } = useImage(props.imageUrl);
 
     return (
-        <div className="w-100 relative flex items-center justify-center">
+        <div className="w-100 relative flex items-center justify-center rounded overflow-hidden">
             <ImageItem 
                 loading={loading}
                 size={size}

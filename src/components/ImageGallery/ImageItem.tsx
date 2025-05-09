@@ -36,7 +36,7 @@ const ImageItem: React.FC<ImageItemProps> = (props: ImageItemProps) => {
                 className="absolute top-0 right-0 bottom-0 left-0 -z-20 bg-cover bg-center" 
                 style={{backgroundImage: `url(${props.objectUrl})`}}
             >
-                <div className="absolute top-0 right-0 bottom-0 left-0 -z-10 bg-black opacity-80">
+                <div className="absolute top-0 right-0 bottom-0 left-0 -z-10 bg-black opacity-80 rounded">
                     {/* backgound */}
                 </div>
             </div>

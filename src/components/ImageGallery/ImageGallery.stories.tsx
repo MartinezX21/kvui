@@ -29,7 +29,7 @@ export const TwoImages: Story = {
     args: {
         images: [
             "https://thumbs.dreamstime.com/b/self-employed-business-woman-working-her-home-office-selling-product-online-shop-127193282.jpg?w=768",
-            "https://thumbs.dreamstime.com/b/pupils-front-whiteboard-muscles-mortarboard-proud-student-elementary-school-125988487.jpg?w=768"
+            "https://thumbs.dreamstime.com/b/fashion-sensual-pretty-woman-sunglasses-posing-outdoors-city-49642468.jpg?w=768"
         ]
     },
 };
@@ -39,7 +39,7 @@ export const ThreeImages: Story = {
         images: [
             "https://thumbs.dreamstime.com/b/young-woman-taking-care-cows-barn-ordinary-focus-grass-129103626.jpg?w=768",
             "https://thumbs.dreamstime.com/b/hand-asian-sporty-woman-putting-golf-ball-tee-club-golf-course-evening-time-healthy-sport-lifestyle-sport-147127125.jpg?w=768",
-            "https://thumbs.dreamstime.com/b/fashion-sensual-pretty-woman-sunglasses-posing-outdoors-city-49642468.jpg?w=768"
+            "https://thumbs.dreamstime.com/b/anonymous-girl-crowded-suitcase-going-vacation-travel-unrecognizable-young-girl-presses-her-foot-crowded-suitcase-175974142.jpg?w=768"
         ]
     },
 };

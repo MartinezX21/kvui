@@ -28,3 +28,11 @@ export type TwoImagesProps = {
 export type ThreeImagesProps = TwoImagesProps & {
     thirdImageUrl: string
 }
+
+export type FourImagesProps = ThreeImagesProps & {
+    fourthImageUrl: string
+}
+
+export type FiveAndMoreImagesProps = FourImagesProps & {
+    otherImagesCount: number
+}
