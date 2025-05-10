@@ -1,9 +1,9 @@
 import React from "react";
-import { FourImagesProps } from "./types";
+import { FiveAndMoreImagesProps } from "./types";
 import useImage from "../../hooks/useImage";
 import ImageItem from "./ImageItem";
 
-const FourImages: React.FC<FourImagesProps> = (props: FourImagesProps) => {
+const FiveAndMoreImages: React.FC<FiveAndMoreImagesProps> = (props: FiveAndMoreImagesProps) => {
     const { loading: firstImageLoading, size: firstImageSize, objectUrl: firstImageObjectUrl } = useImage(props.firstImageUrl);
     const { loading: secondImageLoading, size: secondImageSize, objectUrl: secondImageObjectUrl } = useImage(props.secondImageUrl);
     const { loading: thirdImageLoading, size: thirdImageSize, objectUrl: thirdImageObjectUrl } = useImage(props.thirdImageUrl);
@@ -61,9 +61,12 @@ const FourImages: React.FC<FourImagesProps> = (props: FourImagesProps) => {
                     objectUrl={fourthImageObjectUrl}
                     containerWidth={eachImageSize}
                     containerHeight={eachImageHeight}/>
+                <div className="absolute left-0 top-0 w-full h-full z-10 bg-black opacity-80 flex justify-center items-center backdrop-blur-2xl">
+                    <span className="text-white">+{props.otherImagesCount + 1} others</span>
+                </div>
             </div>
         </div>
     )
 }
 
-export default FourImages;
+export default FiveAndMoreImages;

@@ -34,6 +34,15 @@ export const TwoImages: Story = {
     },
 };
 
+export const TwoImagesBis: Story = {
+    args: {
+        images: [
+            "https://thumbs.dreamstime.com/b/young-woman-taking-care-cows-barn-ordinary-focus-grass-129103626.jpg?w=768",
+            "https://thumbs.dreamstime.com/b/fashion-sensual-pretty-woman-sunglasses-posing-outdoors-city-49642468.jpg?w=768"
+        ]
+    },
+};
+
 export const ThreeImages: Story = {
     args: {
         images: [
@@ -58,10 +67,10 @@ export const FourImages: Story = {
 export const FiveImages: Story = {
     args: {
         images: [
-            "https://thumbs.dreamstime.com/b/young-woman-taking-care-cows-barn-ordinary-focus-grass-129103626.jpg?w=768",
             "https://thumbs.dreamstime.com/b/hand-asian-sporty-woman-putting-golf-ball-tee-club-golf-course-evening-time-healthy-sport-lifestyle-sport-147127125.jpg?w=768",
             "https://thumbs.dreamstime.com/b/girl-dog-happy-beautiful-blond-corgi-fluffy-have-fun-posing-camera-130963631.jpg?w=768",
             "https://thumbs.dreamstime.com/b/let-s-go-travel-enjoy-every-moment-text-realistic-shoes-hat-passport-phone-camera-vacation-blue-background-let-s-117416564.jpg?w=768",
+            "https://thumbs.dreamstime.com/b/young-woman-taking-care-cows-barn-ordinary-focus-grass-129103626.jpg?w=768",
             "https://thumbs.dreamstime.com/b/anonymous-girl-crowded-suitcase-going-vacation-travel-unrecognizable-young-girl-presses-her-foot-crowded-suitcase-175974142.jpg?w=768",
         ]
     },

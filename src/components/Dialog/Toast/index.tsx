@@ -69,7 +69,7 @@ const Toast: React.FC<ToastProps> = (props: ToastProps) => {
                 ease: 'linear',
                 duration: 0.3
             }}
-            className={cn("fixed", {
+            className={cn("fixed toast-stack-level", {
                 'left-8': props.halign === undefined || props.halign === 'left',
                 'right-8': props.halign === 'right',
                 'bottom-8': props.valign === undefined || props.valign === 'bottom',

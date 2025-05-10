@@ -13,7 +13,7 @@ const SidebarFooter: React.FC<SidebarFooterProps> = (props: SidebarFooterProps) 
     }
 
     return (
-        <button type="button" className="w-100" onClick={_ => handleItemClicked()}>
+        <button type="button" className="w-full" onClick={_ => handleItemClicked()}>
             <div className="shrink-0 h-16 flex items-center justify-center gap-2 p-3 bg-slate-50">
                 {props.Icon}
                 <AnimatePresence>

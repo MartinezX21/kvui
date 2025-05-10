@@ -1,10 +1,10 @@
 import React from "react";
 
-type DrawerProps = {
+type DrawerNavigationProps = {
 
 }
 
-const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
+const DrawerNavigation: React.FC<DrawerNavigationProps> = (props: DrawerNavigationProps) => {
 
     return (
         <div>
@@ -13,4 +13,4 @@ const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
     )
 }
 
-export default Drawer;
+export default DrawerNavigation;

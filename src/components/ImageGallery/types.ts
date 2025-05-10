@@ -16,13 +16,15 @@ export type ImageItemProps = {
 
 export type SingleImageProps = {
     imageUrl: string,
-    containerWidth: number
+    containerWidth: number,
+    onImageClick: (index: number) => void
 }
 
 export type TwoImagesProps = {
     firstImageUrl: string,
     secondImageUrl: string,
-    containerWidth: number
+    containerWidth: number,
+    onImageClick: (index: number) => void
 }
 
 export type ThreeImagesProps = TwoImagesProps & {

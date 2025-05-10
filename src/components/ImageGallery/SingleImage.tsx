@@ -7,12 +7,16 @@ const SingleImage: React.FC<SingleImageProps> = (props: SingleImageProps) => {
     const { loading, size, objectUrl } = useImage(props.imageUrl);
 
     return (
-        <div className="w-100 relative flex items-center justify-center rounded overflow-hidden">
+        <div 
+            className="w-full relative flex items-center justify-center rounded overflow-hidden cursor-pointer"
+            onClick={_e => props.onImageClick(0)}
+        >
             <ImageItem 
                 loading={loading}
                 size={size}
                 objectUrl={objectUrl}
-                containerWidth={props.containerWidth}/>
+                containerWidth={props.containerWidth}
+                containerHeight={300}/>
         </div>
     )
 }

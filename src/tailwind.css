@@ -6,6 +6,18 @@
     .text-xxs {
         @apply text-[0.5em]
     }
+    .toast-stack-level {
+        @apply z-[999]
+    }
+    .modal-stack-level {
+        @apply z-[499]
+    }
+    .modal-backdrop-stack-level {
+        @apply z-[599]
+    }
+    .modal-content-stack-level {
+        @apply z-[699]
+    }
 }
 
 @layer components {
