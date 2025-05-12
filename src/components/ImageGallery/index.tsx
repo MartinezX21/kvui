@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ImageGalleryProps } from "./types";
 import SingleImage from "./SingleImage";
 import TwoImages from "./TwoImages";
@@ -8,9 +8,17 @@ import FiveAndMoreImages from "./FiveAndMoreImages";
 import ImageViewer from "../Dialog/ImageViwer";
 
 const ImageGallery: React.FC<ImageGalleryProps> = (props: ImageGalleryProps) => {
-    
+    const [viewerVisible, setViewerVisible] = useState(false);
+    const [initialActiveIndex, setInitialActiveIndex] = useState(0);
+
     const handleImageClick = (index: number) => {
-        console.log(index);
+        setInitialActiveIndex(index);
+        setViewerVisible(true);
+    }
+
+    const closeImageViewer = () => {
+        setViewerVisible(false);
+        setInitialActiveIndex(0);
     }
 
     return (
@@ -51,7 +59,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = (props: ImageGalleryProps) => 
                     containerWidth={props.containerWidth}
                     onImageClick={handleImageClick} />
             : null}
-            <ImageViewer images={props.images}/>
+            <ImageViewer 
+                visible={viewerVisible} 
+                title="Images" 
+                images={props.images}
+                initialActiveIndex={initialActiveIndex}
+                onClose={closeImageViewer}/>
         </div>
     )
 }

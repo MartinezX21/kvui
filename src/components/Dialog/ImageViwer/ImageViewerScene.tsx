@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { ImageViewerSceneProps } from "./types";
 import useImage from "../../../hooks/useImage";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
 const ImageViewerScene: React.FC<ImageViewerSceneProps> = (props: ImageViewerSceneProps) => {
     const { loading, size, objectUrl } = useImage(props.imageUrl);
@@ -15,12 +16,40 @@ const ImageViewerScene: React.FC<ImageViewerSceneProps> = (props: ImageViewerSce
         return styles;
     }, [loading])
 
-    return (
-        <img 
-            src={objectUrl} 
-            alt="" 
-            style={imageStyles()}/>
-    )
+    const animateVariants: Variants = {
+        visible: {
+            opacity: 1,
+            transition: {
+                ease: 'linear',
+                duration: 0.3
+            }
+        },
+        hidden: {
+            opacity: 0,
+            transition: {
+                duration: 0
+            }
+        }
+    }
+
+    if(loading) {
+        // to be improved latter
+        return null;
+    } else {
+        return (
+            <AnimatePresence>
+                {props.visible &&
+                <motion.img
+                    variants={animateVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    src={objectUrl} 
+                    alt="" 
+                    style={imageStyles()}/>}
+            </AnimatePresence>
+        )
+    }
 }
 
 export default ImageViewerScene;

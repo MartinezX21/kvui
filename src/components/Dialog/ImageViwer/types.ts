@@ -1,7 +1,12 @@
 export type ImageViewerProps = {
-    images: string[]
+    visible: boolean;
+    title: string;
+    images: string[];
+    initialActiveIndex?: number;
+    onClose: () => void;
 }
 
 export type ImageViewerSceneProps = {
-    imageUrl: string
+    imageUrl: string;
+    visible: boolean;
 }
