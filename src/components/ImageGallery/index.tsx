@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from 'react-dom';
 import { ImageGalleryProps } from "./types";
 import SingleImage from "./SingleImage";
 import TwoImages from "./TwoImages";
@@ -59,12 +60,13 @@ const ImageGallery: React.FC<ImageGalleryProps> = (props: ImageGalleryProps) => 
                     containerWidth={props.containerWidth}
                     onImageClick={handleImageClick} />
             : null}
-            <ImageViewer 
-                visible={viewerVisible} 
-                title="Images" 
-                images={props.images}
-                initialActiveIndex={initialActiveIndex}
-                onClose={closeImageViewer}/>
+            {viewerVisible && createPortal(
+                <ImageViewer 
+                    title="Images" 
+                    images={props.images}
+                    initialActiveIndex={initialActiveIndex}
+                    onClose={closeImageViewer}/>, document.body
+            )}
         </div>
     )
 }
