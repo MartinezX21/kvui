@@ -3,6 +3,7 @@ import { ImageViewerSceneProps } from "./types";
 import useImage from "../../../hooks/useImage";
 import { AnimatePresence, motion, useMotionValue, Variants } from "framer-motion";
 import { cn } from "../../../utils";
+import Spinner from "../../Progess/Spinner";
 
 const ImageViewerScene: React.FC<ImageViewerSceneProps> = (props: ImageViewerSceneProps) => {
     const { loading, size, objectUrl } = useImage(props.imageUrl);
@@ -23,8 +24,11 @@ const ImageViewerScene: React.FC<ImageViewerSceneProps> = (props: ImageViewerSce
     }, [props.scale])
 
     if(loading) {
-        // to be improved latter
-        return null;
+        return (
+            <div className="w-full h-full flex justify-center items-center">
+                <Spinner size="medium"/>
+            </div>
+        )
     } else {
         return (
             <AnimatePresence>
