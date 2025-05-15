@@ -1,4 +1,5 @@
 export type ImageViewerProps = {
+    visible: boolean;
     title: string;
     images: string[];
     initialActiveIndex?: number;

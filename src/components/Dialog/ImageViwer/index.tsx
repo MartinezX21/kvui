@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { createPortal } from 'react-dom';
 import { ImageViewerProps } from "./types";
 import ImageViewerScene from "./ImageViewerScene";
 import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
@@ -10,6 +11,16 @@ import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomInMapIcon from '@mui/icons-material/ZoomInMap';
 
 const ImageViewer: React.FC<ImageViewerProps> = (props: ImageViewerProps) => {
+    
+    if(props.visible) {
+        return createPortal(<ImageViewerInclude {...props}/>, document.body)
+    }
+    else {
+        return null;
+    }
+}
+
+const ImageViewerInclude: React.FC<ImageViewerProps> = (props: ImageViewerProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [scale, setScale] = useState(1);
 

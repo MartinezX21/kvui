@@ -60,13 +60,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = (props: ImageGalleryProps) => 
                     containerWidth={props.containerWidth}
                     onImageClick={handleImageClick} />
             : null}
-            {viewerVisible && createPortal(
-                <ImageViewer 
-                    title="Images" 
-                    images={props.images}
-                    initialActiveIndex={initialActiveIndex}
-                    onClose={closeImageViewer}/>, document.body
-            )}
+            <ImageViewer 
+                visible={viewerVisible}
+                title="Images" 
+                images={props.images}
+                initialActiveIndex={initialActiveIndex}
+                onClose={closeImageViewer}/>
         </div>
     )
 }
