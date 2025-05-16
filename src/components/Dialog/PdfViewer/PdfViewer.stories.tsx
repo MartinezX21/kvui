@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import PdfViewer from '.';
-
+const pdfUrl = "/src/components/Dialog/PdfViewer/LettreDeRevision.pdf";
 const meta = {
   title: 'Example/PdfViewer',
   component: PdfViewer,
@@ -10,7 +10,7 @@ const meta = {
     layout: 'fullscreen',
   },
   args: {
-    visible: true,
+    visible: false,
     onClose: fn()
   },
 } satisfies Meta<typeof PdfViewer>;
@@ -20,6 +20,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
     args: {
-        pdfFile: ""
+        pdfSrc: pdfUrl
     },
 };

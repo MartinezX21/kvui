@@ -1,5 +1,5 @@
 export type PdfViewerProps = {
     visible: boolean;
-    pdfFile: string;
+    pdfSrc: string;
     onClose: () => void;
 }
