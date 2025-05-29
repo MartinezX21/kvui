@@ -6,9 +6,9 @@ import SidebarFooter from './SidebarFooter';
 import SidebarSection from "./SidebarSection";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SidebarItem from "./SidebarItem";
-import ChatIcon from '@mui/icons-material/Chat';
-import SwitchAccountIcon from '@mui/icons-material/SwitchAccount';
-import GroupsIcon from '@mui/icons-material/Groups';
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
+import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -19,6 +19,8 @@ const meta = {
   args: {
     headerTitle: "Lintello",
     defaultActiveItemId: "nav-home",
+    isDrawerVisible: false,
+    onCloseDrawer: () => fn(),
     children: (
       <>
         <SidebarSection title="Feeds" separator>
@@ -27,11 +29,11 @@ const meta = {
             label="Home"
             onClick={id => (console.log(id))}/>
           <SidebarItem id="storyline"
-            Icon={<SwitchAccountIcon/>}
+            Icon={<SwitchAccountOutlinedIcon/>}
             label="My Storyline"
             onClick={id => (console.log(id))}/>
           <SidebarItem id="chat"
-            Icon={<ChatIcon/>}
+            Icon={<ChatOutlinedIcon/>}
             label="Chat"
             badge='3'
             onClick={id => (console.log(id))}/>
@@ -42,7 +44,7 @@ const meta = {
             label="Favorites"
             onClick={id => (console.log(id))}/>
           <SidebarItem id="community-discovery"
-            Icon={<GroupsIcon/>}
+            Icon={<GroupsOutlinedIcon/>}
             label="Discovery"
             onClick={id => (console.log(id))}/>
         </SidebarSection>

@@ -1,18 +1,18 @@
 import React from 'react';
 
-export type SidebarFooterProps = {
-    id: string;
-    label: string;
-    Icon: React.ReactElement;
-    onClick: (id: SidebarFooterProps["id"]) => void;
-}
-
-export type SidebarHeaderProps = {
-    title: string;
-    Logo: React.ReactElement;
-}
-
 export type NavigationSidebarProps = {
+    /**
+     * When drawer sidebar is enabled (mobile), indicates if the drawer is visible or no
+     */
+    isDrawerVisible: boolean;
+    /**
+     * When drawer sidebar is enabled (mobile), this callback is executed when the drawer is being closed
+     */
+    onCloseDrawer: () => void;
+    /**
+     * Id of the section to be set as active by default
+     */
+    defaultActiveItemId?: string;
     /**
      * Sidebar title, useless if {@link NavigationSidebarProps.renderHeader} is defined
      */
@@ -31,10 +31,6 @@ export type NavigationSidebarProps = {
      * @returns the alement to be rendered as footer
      */
     renderFooter?: () => React.ReactElement;
-    /**
-     * Id of the section to be set as active by default
-     */
-    defaultActiveItemId?: string;
     children?: React.ReactNode;
 }
 
@@ -53,4 +49,16 @@ export type SidebarItemProps = {
     Icon: React.ReactElement;
     badge?: string;
     onClick: (id: SidebarItemProps["id"]) => void;
+}
+
+export type SidebarFooterProps = {
+    id: string;
+    label: string;
+    Icon: React.ReactElement;
+    onClick: (id: SidebarFooterProps["id"]) => void;
+}
+
+export type SidebarHeaderProps = {
+    title: string;
+    Logo: React.ReactElement;
 }

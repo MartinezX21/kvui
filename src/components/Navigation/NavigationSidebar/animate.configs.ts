@@ -14,6 +14,20 @@ export const mainAnimateVariants: Variants = {
             ease: 'linear',
             duration: 0.3
         }
+    },
+    visible: {
+        x: 0,
+        transition: {
+            ease: 'linear',
+            duration: 0.3
+        }
+    },
+    hidden: {
+        x: -240,
+        transition: {
+            ease: 'linear',
+            duration: 0.3
+        }
     }
 }
 
