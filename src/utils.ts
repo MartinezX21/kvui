@@ -1,7 +1,9 @@
 import { clsx, ClassValue } from "clsx";
 import { twMerge } from 'tailwind-merge';
 
-export const MAX_IMG_HEIGHT = 300;
+export const BREAK_POINT = {
+    MD: 768
+}
 
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
