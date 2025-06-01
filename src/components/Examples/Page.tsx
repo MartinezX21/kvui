@@ -3,11 +3,13 @@ import MasterHeaderWithDrawer from "../Layout/MasterHeaderWithDrawer";
 import NavigationSidebar from "../Navigation/NavigationSidebar";
 import SidebarSection from "../Navigation/NavigationSidebar/SidebarSection";
 import SidebarItem from "../Navigation/NavigationSidebar/SidebarItem";
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
+import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
+import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import SwitchAccountOutlinedIcon from '@mui/icons-material/SwitchAccountOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SidebarFooter from "../Navigation/NavigationSidebar/SidebarFooter";
 
 const Page: React.FC<{}> = ({}) => {
     const [isDrawerVisible, setIsDrawerVisible] = useState(false);
@@ -17,34 +19,41 @@ const Page: React.FC<{}> = ({}) => {
             Sidebar={
                 <NavigationSidebar 
                     headerTitle="Lintello" 
-                    defaultActiveItemId="nav-home"
+                    defaultActiveItemId="nav-inbox"
                     isDrawerVisible={isDrawerVisible}
                     onCloseDrawer={() => setIsDrawerVisible(false)}
+                    renderFooter={() => (
+                        <SidebarFooter
+                            id='nav-footer'
+                            label="Account"
+                            Icon={<AccountCircleIcon/>}
+                            onClick={id => console.log(id)}/>
+                    )}
                 >
-                    <SidebarSection title="Feeds" separator>
-                    <SidebarItem id="nav-home"
-                        Icon={<HomeOutlinedIcon/>}
-                        label="Home"
-                        onClick={id => (console.log(id))}/>
-                    <SidebarItem id="storyline"
-                        Icon={<SwitchAccountOutlinedIcon/>}
-                        label="My Storyline"
-                        onClick={id => (console.log(id))}/>
-                    <SidebarItem id="chat"
-                        Icon={<ChatOutlinedIcon/>}
-                        label="Chat"
-                        badge='3'
-                        onClick={id => (console.log(id))}/>
+                    <SidebarSection title="For You" separator>
+                        <SidebarItem id="nav-inbox"
+                            Icon={<InboxOutlinedIcon/>}
+                            label="Inbox"
+                            badge='3'
+                            onClick={id => console.log(id)}/>
+                        <SidebarItem id="storyline"
+                            Icon={<SwitchAccountOutlinedIcon/>}
+                            label="Storyline"
+                            onClick={id => console.log(id)}/>
+                        <SidebarItem id="favorites"
+                            Icon={<FavoriteBorderIcon/>}
+                            label="Favorites"
+                            onClick={id => console.log(id)}/>
                     </SidebarSection>
-                    <SidebarSection title="Communities">
-                    <SidebarItem id="community-favorites"
-                        Icon={<FavoriteBorderIcon/>}
-                        label="Favorites"
-                        onClick={id => (console.log(id))}/>
-                    <SidebarItem id="community-discovery"
-                        Icon={<GroupsOutlinedIcon/>}
-                        label="Discovery"
-                        onClick={id => (console.log(id))}/>
+                    <SidebarSection title="Explore">
+                        <SidebarItem id="people"
+                            Icon={<PeopleOutlinedIcon/>}
+                            label="People"
+                            onClick={id => console.log(id)}/>
+                        <SidebarItem id="communities"
+                            Icon={<GroupsOutlinedIcon/>}
+                            label="Communities"
+                            onClick={id => console.log(id)}/>
                     </SidebarSection>
                 </NavigationSidebar>
             }
